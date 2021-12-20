@@ -1,0 +1,24 @@
+[
+    {
+        "name": "kouki",
+        "lastName": "karim",
+        "adress": "bla bla bla",
+        "skills": [
+            ["html", "pugjs", "haml"],
+            ["css", "sass", "tailwind"]
+           ],
+           "skillsProgress":[{"html": "60%", "css": "50%"}, {"js": "40%", "angular":"40%" }],
+        "country": "tunisia",
+        "adresses": {
+            "USA": "Chicago",
+            "Germany": "Munich",
+            "Spain": [
+                "one",
+                "two",
+                "three"
+            ]
+        },
+        "age": 24,
+        "travail": null
+       }
+]

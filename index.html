@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="data"></div>
+    <div id="name"></div>
+    <div id="age"></div>
+    <div id="show"></div>
+    <script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+  crossorigin="anonymous"></script>
+  <script>
+      /*load json data with $get jquery*/
+/*       $(function() {
+          $.getJSON("course.json", function(data){
+              console.log(data);
+
+              var content = "";
+
+              for (var x in data) {
+                content += "<div>" + data[x].name + "</<div>>"
+              }
+              console.log(content);
+              $("#show").html(content);
+          })
+      }) */
+      /*Load JSON Data With jQuery $ Ajax*/
+
+      $(function(){
+          $.ajax({
+              url: 'https://api.github.com/users/ElzeroWebSchool/repos',
+              dataType: 'json',
+              cache: false,
+              success: function(data, status) {
+               /*  var content = "";
+
+              for (var x in data) {
+                content += "<div>" + data[x].skills + "</<div>"
+              }
+              console.log(content);
+              $("#show").html(content); */
+
+              $.each(data, function(index){
+                  $("#show").append("<div>" + data[index].owner.login + "</div>")
+              })
+              },
+
+
+              error: function(xhr, statustext, err){
+                console.log(xhr)
+                console.log(statustext)
+                console.log(err)
+              }
+          })
+      })
+  </script>
+    <script>
+        /*Parse And Stringify With JavaScript*/
+
+        /*receive data from server*/
+        /* let myJsonObject = '{"username": "karim", "lastname": "kouki"}';
+        let myjsObject = JSON.parse(myJsonObject);
+
+        console.log(myJsonObject);
+        console.log(typeof(myJsonObject))
+
+        console.log(myjsObject);
+        console.log(typeof(myjsObject))
+ */
+
+        /*send data to server*/
+
+    /*      let myjsObject = {username: "karim", lastname: "kouki"};
+        let myJsonObject = JSON.stringify(myjsObject);
+
+        console.log(myjsObject);
+        console.log(typeof(myjsObject))
+
+        console.log(myJsonObject);
+        console.log(typeof(myJsonObject))
+ */
+       
+        let myJsonObject = '{"username": "karim", "age": 24}';
+        let myjsObject = JSON.parse(myJsonObject);
+
+        document.getElementById("name").innerHTML = "my name is " + myJsonObject.username
+        console.log(typeof(myJsonObject))
+        console.log(typeof(myjsObject))
+    </script>
+</body>
+</html>
